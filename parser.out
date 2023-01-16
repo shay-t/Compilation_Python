@@ -1,0 +1,3558 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    BREAK
+    CLASS
+    CONTINUE
+    FALSE
+    FLOAT_CONST
+    INT_CONST
+    MODULO
+    NONE
+    NOTEQUAL
+    NUMBER
+    QUOTES
+    RETURN
+    SIZEOF
+    TRUE
+    VAR_TYPE
+    char
+    functionname
+
+Grammar
+
+Rule 0     S' -> expression
+Rule 1     expression -> INT
+Rule 2     expression -> FLOATTYPE
+Rule 3     factor -> INT
+Rule 4     factor -> FLOATTYPE
+Rule 5     term -> INT
+Rule 6     term -> FLOATTYPE
+Rule 7     expression -> STRING
+Rule 8     expression -> BOOL
+Rule 9     expression -> ID DECREMENTATION
+Rule 10    expression -> INT DECREMENTATION
+Rule 11    expression -> ID INCREMENTATION
+Rule 12    expression -> INT INCREMENTATION
+Rule 13    expression -> expression PLUS expression
+Rule 14    expression -> expression MINUS expression
+Rule 15    expression -> expression TIMES expression
+Rule 16    expression -> expression DIVIDE expression
+Rule 17    expression -> ID PLUS expression
+Rule 18    expression -> ID MINUS expression
+Rule 19    expression -> ID TIMES expression
+Rule 20    expression -> ID DIVIDE expression
+Rule 21    expression -> ID PLUS STRING
+Rule 22    expression -> PRINT LPAREN STRING RPAREN
+Rule 23    expression -> ID EQUALS expression
+Rule 24    expression -> ID EQUALS ID
+Rule 25    expression -> PRINT LPAREN ID RPAREN
+Rule 26    expression -> PRINT LPAREN expression RPAREN
+Rule 27    expression -> IF LPAREN condition RPAREN LBRACE expression RBRACE
+Rule 28    expression -> IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+Rule 29    expression -> IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+Rule 30    expression -> IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+Rule 31    condition -> INT EQUALEQUAL INT
+Rule 32    condition -> INT GTH INT
+Rule 33    condition -> INT LTH INT
+Rule 34    condition -> INT GTHOREQUAL INT
+Rule 35    condition -> INT LTHOREQUAL INT
+Rule 36    condition -> ID EQUALEQUAL INT
+Rule 37    condition -> ID GTH INT
+Rule 38    condition -> ID LTH INT
+Rule 39    condition -> ID GTHOREQUAL INT
+Rule 40    condition -> ID LTHOREQUAL INT
+Rule 41    expression -> WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+Rule 42    expression -> WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+Rule 43    expression -> WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+Rule 44    expression -> WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+Rule 45    expression -> WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+Rule 46    instruction -> expression
+Rule 47    instruction -> expression COMMA instruction
+Rule 48    expression -> FOR INT TO INT DEUXPOINTS instruction
+Rule 49    expression -> INPUT LPAREN STRING COMMA ID RPAREN
+Rule 50    expression -> LIST ID SEMICOL
+Rule 51    item -> INT
+Rule 52    item -> STRING
+Rule 53    expression -> ID POINT APPEND LPAREN item RPAREN
+Rule 54    expression -> ID POINT CLEAR LPAREN RPAREN
+Rule 55    expression -> ID POINT POP LPAREN INT RPAREN
+Rule 56    expression -> ID POINT SORT LPAREN RPAREN
+Rule 57    expression -> ID POINT REVERSE LPAREN RPAREN
+Rule 58    expression -> FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+Rule 59    expression -> FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+Rule 60    ARGS -> expression
+Rule 61    ARGS -> expression COMMA ARGS
+Rule 62    expression -> FUNCTION ID LPAREN RPAREN SEMICOL
+Rule 63    expression -> FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+Terminals, with rules where they appear
+
+AND                  : 28
+APPEND               : 53
+BOOL                 : 8
+BREAK                : 
+CLASS                : 
+CLEAR                : 54
+COMMA                : 47 49 61
+CONTINUE             : 
+DECREMENTATION       : 9 10
+DEUXPOINTS           : 48
+DIVIDE               : 16 20
+ELSE                 : 30
+EQUALEQUAL           : 31 36 41
+EQUALS               : 23 24
+FALSE                : 
+FLOATTYPE            : 2 4 6
+FLOAT_CONST          : 
+FOR                  : 48
+FUNCTION             : 58 59 62 63
+GTH                  : 32 37 42
+GTHOREQUAL           : 34 39 44
+ID                   : 9 11 17 18 19 20 21 23 24 24 25 36 37 38 39 40 41 42 43 44 45 49 50 53 54 55 56 57 58 59 62 63
+IF                   : 27 28 29 30
+INCREMENTATION       : 11 12
+INPUT                : 49
+INT                  : 1 3 5 10 12 31 31 32 32 33 33 34 34 35 35 36 37 38 39 40 41 42 43 44 45 48 48 51 55
+INT_CONST            : 
+LBRACE               : 27 28 29 30 30 41 42 43 44 45 58 59
+LIST                 : 50
+LPAREN               : 22 25 26 27 28 29 30 41 42 43 44 45 49 53 54 55 56 57 58 59 62 63
+LTH                  : 33 38 43
+LTHOREQUAL           : 35 40 45
+MINUS                : 14 18
+MODULO               : 
+NONE                 : 
+NOTEQUAL             : 
+NUMBER               : 
+OR                   : 29
+PLUS                 : 13 17 21
+POINT                : 53 54 55 56 57
+POP                  : 55
+PRINT                : 22 25 26
+QUOTES               : 
+RBRACE               : 27 28 29 30 30 41 42 43 44 45 58 59
+RETURN               : 
+REVERSE              : 57
+RPAREN               : 22 25 26 27 28 29 30 41 42 43 44 45 49 53 54 55 56 57 58 59 62 63
+SEMICOL              : 50 62 63
+SIZEOF               : 
+SORT                 : 56
+STRING               : 7 21 22 49 52
+TIMES                : 15 19
+TO                   : 48
+TRUE                 : 
+VAR_TYPE             : 
+WHILE                : 41 42 43 44 45
+char                 : 
+error                : 
+functionname         : 
+
+Nonterminals, with rules where they appear
+
+ARGS                 : 59 61 63
+condition            : 27 28 28 29 29 30
+expression           : 13 13 14 14 15 15 16 16 17 18 19 20 23 26 27 28 29 30 30 46 47 60 61 0
+factor               : 
+instruction          : 41 42 43 44 45 47 48 58 59
+item                 : 53
+term                 : 
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . expression
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    STRING          shift and go to state 4
+    BOOL            shift and go to state 5
+    ID              shift and go to state 6
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    expression                     shift and go to state 1
+
+state 1
+
+    (0) S' -> expression .
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . TIMES expression
+    (16) expression -> expression . DIVIDE expression
+
+    PLUS            shift and go to state 14
+    MINUS           shift and go to state 15
+    TIMES           shift and go to state 16
+    DIVIDE          shift and go to state 17
+
+
+state 2
+
+    (1) expression -> INT .
+    (10) expression -> INT . DECREMENTATION
+    (12) expression -> INT . INCREMENTATION
+
+    PLUS            reduce using rule 1 (expression -> INT .)
+    MINUS           reduce using rule 1 (expression -> INT .)
+    TIMES           reduce using rule 1 (expression -> INT .)
+    DIVIDE          reduce using rule 1 (expression -> INT .)
+    $end            reduce using rule 1 (expression -> INT .)
+    RPAREN          reduce using rule 1 (expression -> INT .)
+    COMMA           reduce using rule 1 (expression -> INT .)
+    RBRACE          reduce using rule 1 (expression -> INT .)
+    DECREMENTATION  shift and go to state 18
+    INCREMENTATION  shift and go to state 19
+
+
+state 3
+
+    (2) expression -> FLOATTYPE .
+
+    PLUS            reduce using rule 2 (expression -> FLOATTYPE .)
+    MINUS           reduce using rule 2 (expression -> FLOATTYPE .)
+    TIMES           reduce using rule 2 (expression -> FLOATTYPE .)
+    DIVIDE          reduce using rule 2 (expression -> FLOATTYPE .)
+    $end            reduce using rule 2 (expression -> FLOATTYPE .)
+    RPAREN          reduce using rule 2 (expression -> FLOATTYPE .)
+    COMMA           reduce using rule 2 (expression -> FLOATTYPE .)
+    RBRACE          reduce using rule 2 (expression -> FLOATTYPE .)
+
+
+state 4
+
+    (7) expression -> STRING .
+
+    PLUS            reduce using rule 7 (expression -> STRING .)
+    MINUS           reduce using rule 7 (expression -> STRING .)
+    TIMES           reduce using rule 7 (expression -> STRING .)
+    DIVIDE          reduce using rule 7 (expression -> STRING .)
+    $end            reduce using rule 7 (expression -> STRING .)
+    RPAREN          reduce using rule 7 (expression -> STRING .)
+    COMMA           reduce using rule 7 (expression -> STRING .)
+    RBRACE          reduce using rule 7 (expression -> STRING .)
+
+
+state 5
+
+    (8) expression -> BOOL .
+
+    PLUS            reduce using rule 8 (expression -> BOOL .)
+    MINUS           reduce using rule 8 (expression -> BOOL .)
+    TIMES           reduce using rule 8 (expression -> BOOL .)
+    DIVIDE          reduce using rule 8 (expression -> BOOL .)
+    $end            reduce using rule 8 (expression -> BOOL .)
+    RPAREN          reduce using rule 8 (expression -> BOOL .)
+    COMMA           reduce using rule 8 (expression -> BOOL .)
+    RBRACE          reduce using rule 8 (expression -> BOOL .)
+
+
+state 6
+
+    (9) expression -> ID . DECREMENTATION
+    (11) expression -> ID . INCREMENTATION
+    (17) expression -> ID . PLUS expression
+    (18) expression -> ID . MINUS expression
+    (19) expression -> ID . TIMES expression
+    (20) expression -> ID . DIVIDE expression
+    (21) expression -> ID . PLUS STRING
+    (23) expression -> ID . EQUALS expression
+    (24) expression -> ID . EQUALS ID
+    (53) expression -> ID . POINT APPEND LPAREN item RPAREN
+    (54) expression -> ID . POINT CLEAR LPAREN RPAREN
+    (55) expression -> ID . POINT POP LPAREN INT RPAREN
+    (56) expression -> ID . POINT SORT LPAREN RPAREN
+    (57) expression -> ID . POINT REVERSE LPAREN RPAREN
+
+    DECREMENTATION  shift and go to state 20
+    INCREMENTATION  shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    TIMES           shift and go to state 24
+    DIVIDE          shift and go to state 25
+    EQUALS          shift and go to state 26
+    POINT           shift and go to state 27
+
+
+state 7
+
+    (22) expression -> PRINT . LPAREN STRING RPAREN
+    (25) expression -> PRINT . LPAREN ID RPAREN
+    (26) expression -> PRINT . LPAREN expression RPAREN
+
+    LPAREN          shift and go to state 28
+
+
+state 8
+
+    (27) expression -> IF . LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> IF . LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> IF . LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> IF . LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+
+    LPAREN          shift and go to state 29
+
+
+state 9
+
+    (41) expression -> WHILE . LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> WHILE . LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> WHILE . LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> WHILE . LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> WHILE . LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+
+    LPAREN          shift and go to state 30
+
+
+state 10
+
+    (48) expression -> FOR . INT TO INT DEUXPOINTS instruction
+
+    INT             shift and go to state 31
+
+
+state 11
+
+    (49) expression -> INPUT . LPAREN STRING COMMA ID RPAREN
+
+    LPAREN          shift and go to state 32
+
+
+state 12
+
+    (50) expression -> LIST . ID SEMICOL
+
+    ID              shift and go to state 33
+
+
+state 13
+
+    (58) expression -> FUNCTION . ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> FUNCTION . ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> FUNCTION . ID LPAREN RPAREN SEMICOL
+    (63) expression -> FUNCTION . ID LPAREN ARGS RPAREN SEMICOL
+
+    ID              shift and go to state 34
+
+
+state 14
+
+    (13) expression -> expression PLUS . expression
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    STRING          shift and go to state 4
+    BOOL            shift and go to state 5
+    ID              shift and go to state 6
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    expression                     shift and go to state 35
+
+state 15
+
+    (14) expression -> expression MINUS . expression
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    STRING          shift and go to state 4
+    BOOL            shift and go to state 5
+    ID              shift and go to state 6
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    expression                     shift and go to state 36
+
+state 16
+
+    (15) expression -> expression TIMES . expression
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    STRING          shift and go to state 4
+    BOOL            shift and go to state 5
+    ID              shift and go to state 6
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    expression                     shift and go to state 37
+
+state 17
+
+    (16) expression -> expression DIVIDE . expression
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    STRING          shift and go to state 4
+    BOOL            shift and go to state 5
+    ID              shift and go to state 6
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    expression                     shift and go to state 38
+
+state 18
+
+    (10) expression -> INT DECREMENTATION .
+
+    PLUS            reduce using rule 10 (expression -> INT DECREMENTATION .)
+    MINUS           reduce using rule 10 (expression -> INT DECREMENTATION .)
+    TIMES           reduce using rule 10 (expression -> INT DECREMENTATION .)
+    DIVIDE          reduce using rule 10 (expression -> INT DECREMENTATION .)
+    $end            reduce using rule 10 (expression -> INT DECREMENTATION .)
+    RPAREN          reduce using rule 10 (expression -> INT DECREMENTATION .)
+    COMMA           reduce using rule 10 (expression -> INT DECREMENTATION .)
+    RBRACE          reduce using rule 10 (expression -> INT DECREMENTATION .)
+
+
+state 19
+
+    (12) expression -> INT INCREMENTATION .
+
+    PLUS            reduce using rule 12 (expression -> INT INCREMENTATION .)
+    MINUS           reduce using rule 12 (expression -> INT INCREMENTATION .)
+    TIMES           reduce using rule 12 (expression -> INT INCREMENTATION .)
+    DIVIDE          reduce using rule 12 (expression -> INT INCREMENTATION .)
+    $end            reduce using rule 12 (expression -> INT INCREMENTATION .)
+    RPAREN          reduce using rule 12 (expression -> INT INCREMENTATION .)
+    COMMA           reduce using rule 12 (expression -> INT INCREMENTATION .)
+    RBRACE          reduce using rule 12 (expression -> INT INCREMENTATION .)
+
+
+state 20
+
+    (9) expression -> ID DECREMENTATION .
+
+    PLUS            reduce using rule 9 (expression -> ID DECREMENTATION .)
+    MINUS           reduce using rule 9 (expression -> ID DECREMENTATION .)
+    TIMES           reduce using rule 9 (expression -> ID DECREMENTATION .)
+    DIVIDE          reduce using rule 9 (expression -> ID DECREMENTATION .)
+    $end            reduce using rule 9 (expression -> ID DECREMENTATION .)
+    RPAREN          reduce using rule 9 (expression -> ID DECREMENTATION .)
+    COMMA           reduce using rule 9 (expression -> ID DECREMENTATION .)
+    RBRACE          reduce using rule 9 (expression -> ID DECREMENTATION .)
+
+
+state 21
+
+    (11) expression -> ID INCREMENTATION .
+
+    PLUS            reduce using rule 11 (expression -> ID INCREMENTATION .)
+    MINUS           reduce using rule 11 (expression -> ID INCREMENTATION .)
+    TIMES           reduce using rule 11 (expression -> ID INCREMENTATION .)
+    DIVIDE          reduce using rule 11 (expression -> ID INCREMENTATION .)
+    $end            reduce using rule 11 (expression -> ID INCREMENTATION .)
+    RPAREN          reduce using rule 11 (expression -> ID INCREMENTATION .)
+    COMMA           reduce using rule 11 (expression -> ID INCREMENTATION .)
+    RBRACE          reduce using rule 11 (expression -> ID INCREMENTATION .)
+
+
+state 22
+
+    (17) expression -> ID PLUS . expression
+    (21) expression -> ID PLUS . STRING
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    STRING          shift and go to state 40
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    BOOL            shift and go to state 5
+    ID              shift and go to state 6
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    expression                     shift and go to state 39
+
+state 23
+
+    (18) expression -> ID MINUS . expression
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    STRING          shift and go to state 4
+    BOOL            shift and go to state 5
+    ID              shift and go to state 6
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    expression                     shift and go to state 41
+
+state 24
+
+    (19) expression -> ID TIMES . expression
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    STRING          shift and go to state 4
+    BOOL            shift and go to state 5
+    ID              shift and go to state 6
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    expression                     shift and go to state 42
+
+state 25
+
+    (20) expression -> ID DIVIDE . expression
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    STRING          shift and go to state 4
+    BOOL            shift and go to state 5
+    ID              shift and go to state 6
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    expression                     shift and go to state 43
+
+state 26
+
+    (23) expression -> ID EQUALS . expression
+    (24) expression -> ID EQUALS . ID
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    ID              shift and go to state 44
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    STRING          shift and go to state 4
+    BOOL            shift and go to state 5
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    expression                     shift and go to state 45
+
+state 27
+
+    (53) expression -> ID POINT . APPEND LPAREN item RPAREN
+    (54) expression -> ID POINT . CLEAR LPAREN RPAREN
+    (55) expression -> ID POINT . POP LPAREN INT RPAREN
+    (56) expression -> ID POINT . SORT LPAREN RPAREN
+    (57) expression -> ID POINT . REVERSE LPAREN RPAREN
+
+    APPEND          shift and go to state 46
+    CLEAR           shift and go to state 47
+    POP             shift and go to state 48
+    SORT            shift and go to state 49
+    REVERSE         shift and go to state 50
+
+
+state 28
+
+    (22) expression -> PRINT LPAREN . STRING RPAREN
+    (25) expression -> PRINT LPAREN . ID RPAREN
+    (26) expression -> PRINT LPAREN . expression RPAREN
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    STRING          shift and go to state 51
+    ID              shift and go to state 52
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    BOOL            shift and go to state 5
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    expression                     shift and go to state 53
+
+state 29
+
+    (27) expression -> IF LPAREN . condition RPAREN LBRACE expression RBRACE
+    (28) expression -> IF LPAREN . condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> IF LPAREN . condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> IF LPAREN . condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (31) condition -> . INT EQUALEQUAL INT
+    (32) condition -> . INT GTH INT
+    (33) condition -> . INT LTH INT
+    (34) condition -> . INT GTHOREQUAL INT
+    (35) condition -> . INT LTHOREQUAL INT
+    (36) condition -> . ID EQUALEQUAL INT
+    (37) condition -> . ID GTH INT
+    (38) condition -> . ID LTH INT
+    (39) condition -> . ID GTHOREQUAL INT
+    (40) condition -> . ID LTHOREQUAL INT
+
+    INT             shift and go to state 55
+    ID              shift and go to state 56
+
+    condition                      shift and go to state 54
+
+state 30
+
+    (41) expression -> WHILE LPAREN . ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> WHILE LPAREN . ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> WHILE LPAREN . ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> WHILE LPAREN . ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> WHILE LPAREN . ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+
+    ID              shift and go to state 57
+
+
+state 31
+
+    (48) expression -> FOR INT . TO INT DEUXPOINTS instruction
+
+    TO              shift and go to state 58
+
+
+state 32
+
+    (49) expression -> INPUT LPAREN . STRING COMMA ID RPAREN
+
+    STRING          shift and go to state 59
+
+
+state 33
+
+    (50) expression -> LIST ID . SEMICOL
+
+    SEMICOL         shift and go to state 60
+
+
+state 34
+
+    (58) expression -> FUNCTION ID . LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> FUNCTION ID . LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> FUNCTION ID . LPAREN RPAREN SEMICOL
+    (63) expression -> FUNCTION ID . LPAREN ARGS RPAREN SEMICOL
+
+    LPAREN          shift and go to state 61
+
+
+state 35
+
+    (13) expression -> expression PLUS expression .
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . TIMES expression
+    (16) expression -> expression . DIVIDE expression
+
+    PLUS            reduce using rule 13 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 13 (expression -> expression PLUS expression .)
+    $end            reduce using rule 13 (expression -> expression PLUS expression .)
+    RPAREN          reduce using rule 13 (expression -> expression PLUS expression .)
+    COMMA           reduce using rule 13 (expression -> expression PLUS expression .)
+    RBRACE          reduce using rule 13 (expression -> expression PLUS expression .)
+    TIMES           shift and go to state 16
+    DIVIDE          shift and go to state 17
+
+  ! TIMES           [ reduce using rule 13 (expression -> expression PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 13 (expression -> expression PLUS expression .) ]
+  ! PLUS            [ shift and go to state 14 ]
+  ! MINUS           [ shift and go to state 15 ]
+
+
+state 36
+
+    (14) expression -> expression MINUS expression .
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . TIMES expression
+    (16) expression -> expression . DIVIDE expression
+
+    PLUS            reduce using rule 14 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 14 (expression -> expression MINUS expression .)
+    $end            reduce using rule 14 (expression -> expression MINUS expression .)
+    RPAREN          reduce using rule 14 (expression -> expression MINUS expression .)
+    COMMA           reduce using rule 14 (expression -> expression MINUS expression .)
+    RBRACE          reduce using rule 14 (expression -> expression MINUS expression .)
+    TIMES           shift and go to state 16
+    DIVIDE          shift and go to state 17
+
+  ! TIMES           [ reduce using rule 14 (expression -> expression MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 14 (expression -> expression MINUS expression .) ]
+  ! PLUS            [ shift and go to state 14 ]
+  ! MINUS           [ shift and go to state 15 ]
+
+
+state 37
+
+    (15) expression -> expression TIMES expression .
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . TIMES expression
+    (16) expression -> expression . DIVIDE expression
+
+    PLUS            reduce using rule 15 (expression -> expression TIMES expression .)
+    MINUS           reduce using rule 15 (expression -> expression TIMES expression .)
+    TIMES           reduce using rule 15 (expression -> expression TIMES expression .)
+    DIVIDE          reduce using rule 15 (expression -> expression TIMES expression .)
+    $end            reduce using rule 15 (expression -> expression TIMES expression .)
+    RPAREN          reduce using rule 15 (expression -> expression TIMES expression .)
+    COMMA           reduce using rule 15 (expression -> expression TIMES expression .)
+    RBRACE          reduce using rule 15 (expression -> expression TIMES expression .)
+
+  ! PLUS            [ shift and go to state 14 ]
+  ! MINUS           [ shift and go to state 15 ]
+  ! TIMES           [ shift and go to state 16 ]
+  ! DIVIDE          [ shift and go to state 17 ]
+
+
+state 38
+
+    (16) expression -> expression DIVIDE expression .
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . TIMES expression
+    (16) expression -> expression . DIVIDE expression
+
+    PLUS            reduce using rule 16 (expression -> expression DIVIDE expression .)
+    MINUS           reduce using rule 16 (expression -> expression DIVIDE expression .)
+    TIMES           reduce using rule 16 (expression -> expression DIVIDE expression .)
+    DIVIDE          reduce using rule 16 (expression -> expression DIVIDE expression .)
+    $end            reduce using rule 16 (expression -> expression DIVIDE expression .)
+    RPAREN          reduce using rule 16 (expression -> expression DIVIDE expression .)
+    COMMA           reduce using rule 16 (expression -> expression DIVIDE expression .)
+    RBRACE          reduce using rule 16 (expression -> expression DIVIDE expression .)
+
+  ! PLUS            [ shift and go to state 14 ]
+  ! MINUS           [ shift and go to state 15 ]
+  ! TIMES           [ shift and go to state 16 ]
+  ! DIVIDE          [ shift and go to state 17 ]
+
+
+state 39
+
+    (17) expression -> ID PLUS expression .
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . TIMES expression
+    (16) expression -> expression . DIVIDE expression
+
+    PLUS            reduce using rule 17 (expression -> ID PLUS expression .)
+    MINUS           reduce using rule 17 (expression -> ID PLUS expression .)
+    $end            reduce using rule 17 (expression -> ID PLUS expression .)
+    RPAREN          reduce using rule 17 (expression -> ID PLUS expression .)
+    COMMA           reduce using rule 17 (expression -> ID PLUS expression .)
+    RBRACE          reduce using rule 17 (expression -> ID PLUS expression .)
+    TIMES           shift and go to state 16
+    DIVIDE          shift and go to state 17
+
+  ! TIMES           [ reduce using rule 17 (expression -> ID PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 17 (expression -> ID PLUS expression .) ]
+  ! PLUS            [ shift and go to state 14 ]
+  ! MINUS           [ shift and go to state 15 ]
+
+
+state 40
+
+    (21) expression -> ID PLUS STRING .
+    (7) expression -> STRING .
+
+  ! reduce/reduce conflict for PLUS resolved using rule 7 (expression -> STRING .)
+  ! reduce/reduce conflict for MINUS resolved using rule 7 (expression -> STRING .)
+  ! reduce/reduce conflict for TIMES resolved using rule 7 (expression -> STRING .)
+  ! reduce/reduce conflict for DIVIDE resolved using rule 7 (expression -> STRING .)
+  ! reduce/reduce conflict for $end resolved using rule 7 (expression -> STRING .)
+  ! reduce/reduce conflict for RPAREN resolved using rule 7 (expression -> STRING .)
+  ! reduce/reduce conflict for COMMA resolved using rule 7 (expression -> STRING .)
+  ! reduce/reduce conflict for RBRACE resolved using rule 7 (expression -> STRING .)
+    PLUS            reduce using rule 7 (expression -> STRING .)
+    MINUS           reduce using rule 7 (expression -> STRING .)
+    TIMES           reduce using rule 7 (expression -> STRING .)
+    DIVIDE          reduce using rule 7 (expression -> STRING .)
+    $end            reduce using rule 7 (expression -> STRING .)
+    RPAREN          reduce using rule 7 (expression -> STRING .)
+    COMMA           reduce using rule 7 (expression -> STRING .)
+    RBRACE          reduce using rule 7 (expression -> STRING .)
+
+  ! PLUS            [ reduce using rule 21 (expression -> ID PLUS STRING .) ]
+  ! MINUS           [ reduce using rule 21 (expression -> ID PLUS STRING .) ]
+  ! TIMES           [ reduce using rule 21 (expression -> ID PLUS STRING .) ]
+  ! DIVIDE          [ reduce using rule 21 (expression -> ID PLUS STRING .) ]
+  ! $end            [ reduce using rule 21 (expression -> ID PLUS STRING .) ]
+  ! RPAREN          [ reduce using rule 21 (expression -> ID PLUS STRING .) ]
+  ! COMMA           [ reduce using rule 21 (expression -> ID PLUS STRING .) ]
+  ! RBRACE          [ reduce using rule 21 (expression -> ID PLUS STRING .) ]
+
+
+state 41
+
+    (18) expression -> ID MINUS expression .
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . TIMES expression
+    (16) expression -> expression . DIVIDE expression
+
+    PLUS            reduce using rule 18 (expression -> ID MINUS expression .)
+    MINUS           reduce using rule 18 (expression -> ID MINUS expression .)
+    $end            reduce using rule 18 (expression -> ID MINUS expression .)
+    RPAREN          reduce using rule 18 (expression -> ID MINUS expression .)
+    COMMA           reduce using rule 18 (expression -> ID MINUS expression .)
+    RBRACE          reduce using rule 18 (expression -> ID MINUS expression .)
+    TIMES           shift and go to state 16
+    DIVIDE          shift and go to state 17
+
+  ! TIMES           [ reduce using rule 18 (expression -> ID MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 18 (expression -> ID MINUS expression .) ]
+  ! PLUS            [ shift and go to state 14 ]
+  ! MINUS           [ shift and go to state 15 ]
+
+
+state 42
+
+    (19) expression -> ID TIMES expression .
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . TIMES expression
+    (16) expression -> expression . DIVIDE expression
+
+    PLUS            reduce using rule 19 (expression -> ID TIMES expression .)
+    MINUS           reduce using rule 19 (expression -> ID TIMES expression .)
+    TIMES           reduce using rule 19 (expression -> ID TIMES expression .)
+    DIVIDE          reduce using rule 19 (expression -> ID TIMES expression .)
+    $end            reduce using rule 19 (expression -> ID TIMES expression .)
+    RPAREN          reduce using rule 19 (expression -> ID TIMES expression .)
+    COMMA           reduce using rule 19 (expression -> ID TIMES expression .)
+    RBRACE          reduce using rule 19 (expression -> ID TIMES expression .)
+
+  ! PLUS            [ shift and go to state 14 ]
+  ! MINUS           [ shift and go to state 15 ]
+  ! TIMES           [ shift and go to state 16 ]
+  ! DIVIDE          [ shift and go to state 17 ]
+
+
+state 43
+
+    (20) expression -> ID DIVIDE expression .
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . TIMES expression
+    (16) expression -> expression . DIVIDE expression
+
+    PLUS            reduce using rule 20 (expression -> ID DIVIDE expression .)
+    MINUS           reduce using rule 20 (expression -> ID DIVIDE expression .)
+    TIMES           reduce using rule 20 (expression -> ID DIVIDE expression .)
+    DIVIDE          reduce using rule 20 (expression -> ID DIVIDE expression .)
+    $end            reduce using rule 20 (expression -> ID DIVIDE expression .)
+    RPAREN          reduce using rule 20 (expression -> ID DIVIDE expression .)
+    COMMA           reduce using rule 20 (expression -> ID DIVIDE expression .)
+    RBRACE          reduce using rule 20 (expression -> ID DIVIDE expression .)
+
+  ! PLUS            [ shift and go to state 14 ]
+  ! MINUS           [ shift and go to state 15 ]
+  ! TIMES           [ shift and go to state 16 ]
+  ! DIVIDE          [ shift and go to state 17 ]
+
+
+state 44
+
+    (24) expression -> ID EQUALS ID .
+    (9) expression -> ID . DECREMENTATION
+    (11) expression -> ID . INCREMENTATION
+    (17) expression -> ID . PLUS expression
+    (18) expression -> ID . MINUS expression
+    (19) expression -> ID . TIMES expression
+    (20) expression -> ID . DIVIDE expression
+    (21) expression -> ID . PLUS STRING
+    (23) expression -> ID . EQUALS expression
+    (24) expression -> ID . EQUALS ID
+    (53) expression -> ID . POINT APPEND LPAREN item RPAREN
+    (54) expression -> ID . POINT CLEAR LPAREN RPAREN
+    (55) expression -> ID . POINT POP LPAREN INT RPAREN
+    (56) expression -> ID . POINT SORT LPAREN RPAREN
+    (57) expression -> ID . POINT REVERSE LPAREN RPAREN
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+    $end            reduce using rule 24 (expression -> ID EQUALS ID .)
+    RPAREN          reduce using rule 24 (expression -> ID EQUALS ID .)
+    COMMA           reduce using rule 24 (expression -> ID EQUALS ID .)
+    RBRACE          reduce using rule 24 (expression -> ID EQUALS ID .)
+    DECREMENTATION  shift and go to state 20
+    INCREMENTATION  shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    TIMES           shift and go to state 24
+    DIVIDE          shift and go to state 25
+    EQUALS          shift and go to state 26
+    POINT           shift and go to state 27
+
+  ! PLUS            [ reduce using rule 24 (expression -> ID EQUALS ID .) ]
+  ! MINUS           [ reduce using rule 24 (expression -> ID EQUALS ID .) ]
+  ! TIMES           [ reduce using rule 24 (expression -> ID EQUALS ID .) ]
+  ! DIVIDE          [ reduce using rule 24 (expression -> ID EQUALS ID .) ]
+
+
+state 45
+
+    (23) expression -> ID EQUALS expression .
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . TIMES expression
+    (16) expression -> expression . DIVIDE expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+    $end            reduce using rule 23 (expression -> ID EQUALS expression .)
+    RPAREN          reduce using rule 23 (expression -> ID EQUALS expression .)
+    COMMA           reduce using rule 23 (expression -> ID EQUALS expression .)
+    RBRACE          reduce using rule 23 (expression -> ID EQUALS expression .)
+    PLUS            shift and go to state 14
+    MINUS           shift and go to state 15
+    TIMES           shift and go to state 16
+    DIVIDE          shift and go to state 17
+
+  ! PLUS            [ reduce using rule 23 (expression -> ID EQUALS expression .) ]
+  ! MINUS           [ reduce using rule 23 (expression -> ID EQUALS expression .) ]
+  ! TIMES           [ reduce using rule 23 (expression -> ID EQUALS expression .) ]
+  ! DIVIDE          [ reduce using rule 23 (expression -> ID EQUALS expression .) ]
+
+
+state 46
+
+    (53) expression -> ID POINT APPEND . LPAREN item RPAREN
+
+    LPAREN          shift and go to state 62
+
+
+state 47
+
+    (54) expression -> ID POINT CLEAR . LPAREN RPAREN
+
+    LPAREN          shift and go to state 63
+
+
+state 48
+
+    (55) expression -> ID POINT POP . LPAREN INT RPAREN
+
+    LPAREN          shift and go to state 64
+
+
+state 49
+
+    (56) expression -> ID POINT SORT . LPAREN RPAREN
+
+    LPAREN          shift and go to state 65
+
+
+state 50
+
+    (57) expression -> ID POINT REVERSE . LPAREN RPAREN
+
+    LPAREN          shift and go to state 66
+
+
+state 51
+
+    (22) expression -> PRINT LPAREN STRING . RPAREN
+    (7) expression -> STRING .
+
+  ! shift/reduce conflict for RPAREN resolved as shift
+    RPAREN          shift and go to state 67
+    PLUS            reduce using rule 7 (expression -> STRING .)
+    MINUS           reduce using rule 7 (expression -> STRING .)
+    TIMES           reduce using rule 7 (expression -> STRING .)
+    DIVIDE          reduce using rule 7 (expression -> STRING .)
+
+  ! RPAREN          [ reduce using rule 7 (expression -> STRING .) ]
+
+
+state 52
+
+    (25) expression -> PRINT LPAREN ID . RPAREN
+    (9) expression -> ID . DECREMENTATION
+    (11) expression -> ID . INCREMENTATION
+    (17) expression -> ID . PLUS expression
+    (18) expression -> ID . MINUS expression
+    (19) expression -> ID . TIMES expression
+    (20) expression -> ID . DIVIDE expression
+    (21) expression -> ID . PLUS STRING
+    (23) expression -> ID . EQUALS expression
+    (24) expression -> ID . EQUALS ID
+    (53) expression -> ID . POINT APPEND LPAREN item RPAREN
+    (54) expression -> ID . POINT CLEAR LPAREN RPAREN
+    (55) expression -> ID . POINT POP LPAREN INT RPAREN
+    (56) expression -> ID . POINT SORT LPAREN RPAREN
+    (57) expression -> ID . POINT REVERSE LPAREN RPAREN
+
+    RPAREN          shift and go to state 68
+    DECREMENTATION  shift and go to state 20
+    INCREMENTATION  shift and go to state 21
+    PLUS            shift and go to state 22
+    MINUS           shift and go to state 23
+    TIMES           shift and go to state 24
+    DIVIDE          shift and go to state 25
+    EQUALS          shift and go to state 26
+    POINT           shift and go to state 27
+
+
+state 53
+
+    (26) expression -> PRINT LPAREN expression . RPAREN
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . TIMES expression
+    (16) expression -> expression . DIVIDE expression
+
+    RPAREN          shift and go to state 69
+    PLUS            shift and go to state 14
+    MINUS           shift and go to state 15
+    TIMES           shift and go to state 16
+    DIVIDE          shift and go to state 17
+
+
+state 54
+
+    (27) expression -> IF LPAREN condition . RPAREN LBRACE expression RBRACE
+    (28) expression -> IF LPAREN condition . AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> IF LPAREN condition . OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> IF LPAREN condition . RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+
+    RPAREN          shift and go to state 70
+    AND             shift and go to state 71
+    OR              shift and go to state 72
+
+
+state 55
+
+    (31) condition -> INT . EQUALEQUAL INT
+    (32) condition -> INT . GTH INT
+    (33) condition -> INT . LTH INT
+    (34) condition -> INT . GTHOREQUAL INT
+    (35) condition -> INT . LTHOREQUAL INT
+
+    EQUALEQUAL      shift and go to state 73
+    GTH             shift and go to state 74
+    LTH             shift and go to state 75
+    GTHOREQUAL      shift and go to state 76
+    LTHOREQUAL      shift and go to state 77
+
+
+state 56
+
+    (36) condition -> ID . EQUALEQUAL INT
+    (37) condition -> ID . GTH INT
+    (38) condition -> ID . LTH INT
+    (39) condition -> ID . GTHOREQUAL INT
+    (40) condition -> ID . LTHOREQUAL INT
+
+    EQUALEQUAL      shift and go to state 78
+    GTH             shift and go to state 79
+    LTH             shift and go to state 80
+    GTHOREQUAL      shift and go to state 81
+    LTHOREQUAL      shift and go to state 82
+
+
+state 57
+
+    (41) expression -> WHILE LPAREN ID . EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> WHILE LPAREN ID . GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> WHILE LPAREN ID . LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> WHILE LPAREN ID . GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> WHILE LPAREN ID . LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+
+    EQUALEQUAL      shift and go to state 83
+    GTH             shift and go to state 84
+    LTH             shift and go to state 85
+    GTHOREQUAL      shift and go to state 86
+    LTHOREQUAL      shift and go to state 87
+
+
+state 58
+
+    (48) expression -> FOR INT TO . INT DEUXPOINTS instruction
+
+    INT             shift and go to state 88
+
+
+state 59
+
+    (49) expression -> INPUT LPAREN STRING . COMMA ID RPAREN
+
+    COMMA           shift and go to state 89
+
+
+state 60
+
+    (50) expression -> LIST ID SEMICOL .
+
+    PLUS            reduce using rule 50 (expression -> LIST ID SEMICOL .)
+    MINUS           reduce using rule 50 (expression -> LIST ID SEMICOL .)
+    TIMES           reduce using rule 50 (expression -> LIST ID SEMICOL .)
+    DIVIDE          reduce using rule 50 (expression -> LIST ID SEMICOL .)
+    $end            reduce using rule 50 (expression -> LIST ID SEMICOL .)
+    RPAREN          reduce using rule 50 (expression -> LIST ID SEMICOL .)
+    COMMA           reduce using rule 50 (expression -> LIST ID SEMICOL .)
+    RBRACE          reduce using rule 50 (expression -> LIST ID SEMICOL .)
+
+
+state 61
+
+    (58) expression -> FUNCTION ID LPAREN . RPAREN LBRACE instruction RBRACE
+    (59) expression -> FUNCTION ID LPAREN . ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> FUNCTION ID LPAREN . RPAREN SEMICOL
+    (63) expression -> FUNCTION ID LPAREN . ARGS RPAREN SEMICOL
+    (60) ARGS -> . expression
+    (61) ARGS -> . expression COMMA ARGS
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    RPAREN          shift and go to state 90
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    STRING          shift and go to state 4
+    BOOL            shift and go to state 5
+    ID              shift and go to state 6
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    ARGS                           shift and go to state 91
+    expression                     shift and go to state 92
+
+state 62
+
+    (53) expression -> ID POINT APPEND LPAREN . item RPAREN
+    (51) item -> . INT
+    (52) item -> . STRING
+
+    INT             shift and go to state 94
+    STRING          shift and go to state 95
+
+    item                           shift and go to state 93
+
+state 63
+
+    (54) expression -> ID POINT CLEAR LPAREN . RPAREN
+
+    RPAREN          shift and go to state 96
+
+
+state 64
+
+    (55) expression -> ID POINT POP LPAREN . INT RPAREN
+
+    INT             shift and go to state 97
+
+
+state 65
+
+    (56) expression -> ID POINT SORT LPAREN . RPAREN
+
+    RPAREN          shift and go to state 98
+
+
+state 66
+
+    (57) expression -> ID POINT REVERSE LPAREN . RPAREN
+
+    RPAREN          shift and go to state 99
+
+
+state 67
+
+    (22) expression -> PRINT LPAREN STRING RPAREN .
+
+    PLUS            reduce using rule 22 (expression -> PRINT LPAREN STRING RPAREN .)
+    MINUS           reduce using rule 22 (expression -> PRINT LPAREN STRING RPAREN .)
+    TIMES           reduce using rule 22 (expression -> PRINT LPAREN STRING RPAREN .)
+    DIVIDE          reduce using rule 22 (expression -> PRINT LPAREN STRING RPAREN .)
+    $end            reduce using rule 22 (expression -> PRINT LPAREN STRING RPAREN .)
+    RPAREN          reduce using rule 22 (expression -> PRINT LPAREN STRING RPAREN .)
+    COMMA           reduce using rule 22 (expression -> PRINT LPAREN STRING RPAREN .)
+    RBRACE          reduce using rule 22 (expression -> PRINT LPAREN STRING RPAREN .)
+
+
+state 68
+
+    (25) expression -> PRINT LPAREN ID RPAREN .
+
+    PLUS            reduce using rule 25 (expression -> PRINT LPAREN ID RPAREN .)
+    MINUS           reduce using rule 25 (expression -> PRINT LPAREN ID RPAREN .)
+    TIMES           reduce using rule 25 (expression -> PRINT LPAREN ID RPAREN .)
+    DIVIDE          reduce using rule 25 (expression -> PRINT LPAREN ID RPAREN .)
+    $end            reduce using rule 25 (expression -> PRINT LPAREN ID RPAREN .)
+    RPAREN          reduce using rule 25 (expression -> PRINT LPAREN ID RPAREN .)
+    COMMA           reduce using rule 25 (expression -> PRINT LPAREN ID RPAREN .)
+    RBRACE          reduce using rule 25 (expression -> PRINT LPAREN ID RPAREN .)
+
+
+state 69
+
+    (26) expression -> PRINT LPAREN expression RPAREN .
+
+    PLUS            reduce using rule 26 (expression -> PRINT LPAREN expression RPAREN .)
+    MINUS           reduce using rule 26 (expression -> PRINT LPAREN expression RPAREN .)
+    TIMES           reduce using rule 26 (expression -> PRINT LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 26 (expression -> PRINT LPAREN expression RPAREN .)
+    $end            reduce using rule 26 (expression -> PRINT LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 26 (expression -> PRINT LPAREN expression RPAREN .)
+    COMMA           reduce using rule 26 (expression -> PRINT LPAREN expression RPAREN .)
+    RBRACE          reduce using rule 26 (expression -> PRINT LPAREN expression RPAREN .)
+
+
+state 70
+
+    (27) expression -> IF LPAREN condition RPAREN . LBRACE expression RBRACE
+    (30) expression -> IF LPAREN condition RPAREN . LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+
+    LBRACE          shift and go to state 100
+
+
+state 71
+
+    (28) expression -> IF LPAREN condition AND . condition RPAREN LBRACE expression RBRACE
+    (31) condition -> . INT EQUALEQUAL INT
+    (32) condition -> . INT GTH INT
+    (33) condition -> . INT LTH INT
+    (34) condition -> . INT GTHOREQUAL INT
+    (35) condition -> . INT LTHOREQUAL INT
+    (36) condition -> . ID EQUALEQUAL INT
+    (37) condition -> . ID GTH INT
+    (38) condition -> . ID LTH INT
+    (39) condition -> . ID GTHOREQUAL INT
+    (40) condition -> . ID LTHOREQUAL INT
+
+    INT             shift and go to state 55
+    ID              shift and go to state 56
+
+    condition                      shift and go to state 101
+
+state 72
+
+    (29) expression -> IF LPAREN condition OR . condition RPAREN LBRACE expression RBRACE
+    (31) condition -> . INT EQUALEQUAL INT
+    (32) condition -> . INT GTH INT
+    (33) condition -> . INT LTH INT
+    (34) condition -> . INT GTHOREQUAL INT
+    (35) condition -> . INT LTHOREQUAL INT
+    (36) condition -> . ID EQUALEQUAL INT
+    (37) condition -> . ID GTH INT
+    (38) condition -> . ID LTH INT
+    (39) condition -> . ID GTHOREQUAL INT
+    (40) condition -> . ID LTHOREQUAL INT
+
+    INT             shift and go to state 55
+    ID              shift and go to state 56
+
+    condition                      shift and go to state 102
+
+state 73
+
+    (31) condition -> INT EQUALEQUAL . INT
+
+    INT             shift and go to state 103
+
+
+state 74
+
+    (32) condition -> INT GTH . INT
+
+    INT             shift and go to state 104
+
+
+state 75
+
+    (33) condition -> INT LTH . INT
+
+    INT             shift and go to state 105
+
+
+state 76
+
+    (34) condition -> INT GTHOREQUAL . INT
+
+    INT             shift and go to state 106
+
+
+state 77
+
+    (35) condition -> INT LTHOREQUAL . INT
+
+    INT             shift and go to state 107
+
+
+state 78
+
+    (36) condition -> ID EQUALEQUAL . INT
+
+    INT             shift and go to state 108
+
+
+state 79
+
+    (37) condition -> ID GTH . INT
+
+    INT             shift and go to state 109
+
+
+state 80
+
+    (38) condition -> ID LTH . INT
+
+    INT             shift and go to state 110
+
+
+state 81
+
+    (39) condition -> ID GTHOREQUAL . INT
+
+    INT             shift and go to state 111
+
+
+state 82
+
+    (40) condition -> ID LTHOREQUAL . INT
+
+    INT             shift and go to state 112
+
+
+state 83
+
+    (41) expression -> WHILE LPAREN ID EQUALEQUAL . INT RPAREN LBRACE instruction RBRACE
+
+    INT             shift and go to state 113
+
+
+state 84
+
+    (42) expression -> WHILE LPAREN ID GTH . INT RPAREN LBRACE instruction RBRACE
+
+    INT             shift and go to state 114
+
+
+state 85
+
+    (43) expression -> WHILE LPAREN ID LTH . INT RPAREN LBRACE instruction RBRACE
+
+    INT             shift and go to state 115
+
+
+state 86
+
+    (44) expression -> WHILE LPAREN ID GTHOREQUAL . INT RPAREN LBRACE instruction RBRACE
+
+    INT             shift and go to state 116
+
+
+state 87
+
+    (45) expression -> WHILE LPAREN ID LTHOREQUAL . INT RPAREN LBRACE instruction RBRACE
+
+    INT             shift and go to state 117
+
+
+state 88
+
+    (48) expression -> FOR INT TO INT . DEUXPOINTS instruction
+
+    DEUXPOINTS      shift and go to state 118
+
+
+state 89
+
+    (49) expression -> INPUT LPAREN STRING COMMA . ID RPAREN
+
+    ID              shift and go to state 119
+
+
+state 90
+
+    (58) expression -> FUNCTION ID LPAREN RPAREN . LBRACE instruction RBRACE
+    (62) expression -> FUNCTION ID LPAREN RPAREN . SEMICOL
+
+    LBRACE          shift and go to state 120
+    SEMICOL         shift and go to state 121
+
+
+state 91
+
+    (59) expression -> FUNCTION ID LPAREN ARGS . RPAREN LBRACE instruction RBRACE
+    (63) expression -> FUNCTION ID LPAREN ARGS . RPAREN SEMICOL
+
+    RPAREN          shift and go to state 122
+
+
+state 92
+
+    (60) ARGS -> expression .
+    (61) ARGS -> expression . COMMA ARGS
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . TIMES expression
+    (16) expression -> expression . DIVIDE expression
+
+    RPAREN          reduce using rule 60 (ARGS -> expression .)
+    COMMA           shift and go to state 123
+    PLUS            shift and go to state 14
+    MINUS           shift and go to state 15
+    TIMES           shift and go to state 16
+    DIVIDE          shift and go to state 17
+
+
+state 93
+
+    (53) expression -> ID POINT APPEND LPAREN item . RPAREN
+
+    RPAREN          shift and go to state 124
+
+
+state 94
+
+    (51) item -> INT .
+
+    RPAREN          reduce using rule 51 (item -> INT .)
+
+
+state 95
+
+    (52) item -> STRING .
+
+    RPAREN          reduce using rule 52 (item -> STRING .)
+
+
+state 96
+
+    (54) expression -> ID POINT CLEAR LPAREN RPAREN .
+
+    PLUS            reduce using rule 54 (expression -> ID POINT CLEAR LPAREN RPAREN .)
+    MINUS           reduce using rule 54 (expression -> ID POINT CLEAR LPAREN RPAREN .)
+    TIMES           reduce using rule 54 (expression -> ID POINT CLEAR LPAREN RPAREN .)
+    DIVIDE          reduce using rule 54 (expression -> ID POINT CLEAR LPAREN RPAREN .)
+    $end            reduce using rule 54 (expression -> ID POINT CLEAR LPAREN RPAREN .)
+    RPAREN          reduce using rule 54 (expression -> ID POINT CLEAR LPAREN RPAREN .)
+    COMMA           reduce using rule 54 (expression -> ID POINT CLEAR LPAREN RPAREN .)
+    RBRACE          reduce using rule 54 (expression -> ID POINT CLEAR LPAREN RPAREN .)
+
+
+state 97
+
+    (55) expression -> ID POINT POP LPAREN INT . RPAREN
+
+    RPAREN          shift and go to state 125
+
+
+state 98
+
+    (56) expression -> ID POINT SORT LPAREN RPAREN .
+
+    PLUS            reduce using rule 56 (expression -> ID POINT SORT LPAREN RPAREN .)
+    MINUS           reduce using rule 56 (expression -> ID POINT SORT LPAREN RPAREN .)
+    TIMES           reduce using rule 56 (expression -> ID POINT SORT LPAREN RPAREN .)
+    DIVIDE          reduce using rule 56 (expression -> ID POINT SORT LPAREN RPAREN .)
+    $end            reduce using rule 56 (expression -> ID POINT SORT LPAREN RPAREN .)
+    RPAREN          reduce using rule 56 (expression -> ID POINT SORT LPAREN RPAREN .)
+    COMMA           reduce using rule 56 (expression -> ID POINT SORT LPAREN RPAREN .)
+    RBRACE          reduce using rule 56 (expression -> ID POINT SORT LPAREN RPAREN .)
+
+
+state 99
+
+    (57) expression -> ID POINT REVERSE LPAREN RPAREN .
+
+    PLUS            reduce using rule 57 (expression -> ID POINT REVERSE LPAREN RPAREN .)
+    MINUS           reduce using rule 57 (expression -> ID POINT REVERSE LPAREN RPAREN .)
+    TIMES           reduce using rule 57 (expression -> ID POINT REVERSE LPAREN RPAREN .)
+    DIVIDE          reduce using rule 57 (expression -> ID POINT REVERSE LPAREN RPAREN .)
+    $end            reduce using rule 57 (expression -> ID POINT REVERSE LPAREN RPAREN .)
+    RPAREN          reduce using rule 57 (expression -> ID POINT REVERSE LPAREN RPAREN .)
+    COMMA           reduce using rule 57 (expression -> ID POINT REVERSE LPAREN RPAREN .)
+    RBRACE          reduce using rule 57 (expression -> ID POINT REVERSE LPAREN RPAREN .)
+
+
+state 100
+
+    (27) expression -> IF LPAREN condition RPAREN LBRACE . expression RBRACE
+    (30) expression -> IF LPAREN condition RPAREN LBRACE . expression RBRACE ELSE LBRACE expression RBRACE
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    STRING          shift and go to state 4
+    BOOL            shift and go to state 5
+    ID              shift and go to state 6
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    expression                     shift and go to state 126
+
+state 101
+
+    (28) expression -> IF LPAREN condition AND condition . RPAREN LBRACE expression RBRACE
+
+    RPAREN          shift and go to state 127
+
+
+state 102
+
+    (29) expression -> IF LPAREN condition OR condition . RPAREN LBRACE expression RBRACE
+
+    RPAREN          shift and go to state 128
+
+
+state 103
+
+    (31) condition -> INT EQUALEQUAL INT .
+
+    RPAREN          reduce using rule 31 (condition -> INT EQUALEQUAL INT .)
+    AND             reduce using rule 31 (condition -> INT EQUALEQUAL INT .)
+    OR              reduce using rule 31 (condition -> INT EQUALEQUAL INT .)
+
+
+state 104
+
+    (32) condition -> INT GTH INT .
+
+    RPAREN          reduce using rule 32 (condition -> INT GTH INT .)
+    AND             reduce using rule 32 (condition -> INT GTH INT .)
+    OR              reduce using rule 32 (condition -> INT GTH INT .)
+
+
+state 105
+
+    (33) condition -> INT LTH INT .
+
+    RPAREN          reduce using rule 33 (condition -> INT LTH INT .)
+    AND             reduce using rule 33 (condition -> INT LTH INT .)
+    OR              reduce using rule 33 (condition -> INT LTH INT .)
+
+
+state 106
+
+    (34) condition -> INT GTHOREQUAL INT .
+
+    RPAREN          reduce using rule 34 (condition -> INT GTHOREQUAL INT .)
+    AND             reduce using rule 34 (condition -> INT GTHOREQUAL INT .)
+    OR              reduce using rule 34 (condition -> INT GTHOREQUAL INT .)
+
+
+state 107
+
+    (35) condition -> INT LTHOREQUAL INT .
+
+    RPAREN          reduce using rule 35 (condition -> INT LTHOREQUAL INT .)
+    AND             reduce using rule 35 (condition -> INT LTHOREQUAL INT .)
+    OR              reduce using rule 35 (condition -> INT LTHOREQUAL INT .)
+
+
+state 108
+
+    (36) condition -> ID EQUALEQUAL INT .
+
+    RPAREN          reduce using rule 36 (condition -> ID EQUALEQUAL INT .)
+    AND             reduce using rule 36 (condition -> ID EQUALEQUAL INT .)
+    OR              reduce using rule 36 (condition -> ID EQUALEQUAL INT .)
+
+
+state 109
+
+    (37) condition -> ID GTH INT .
+
+    RPAREN          reduce using rule 37 (condition -> ID GTH INT .)
+    AND             reduce using rule 37 (condition -> ID GTH INT .)
+    OR              reduce using rule 37 (condition -> ID GTH INT .)
+
+
+state 110
+
+    (38) condition -> ID LTH INT .
+
+    RPAREN          reduce using rule 38 (condition -> ID LTH INT .)
+    AND             reduce using rule 38 (condition -> ID LTH INT .)
+    OR              reduce using rule 38 (condition -> ID LTH INT .)
+
+
+state 111
+
+    (39) condition -> ID GTHOREQUAL INT .
+
+    RPAREN          reduce using rule 39 (condition -> ID GTHOREQUAL INT .)
+    AND             reduce using rule 39 (condition -> ID GTHOREQUAL INT .)
+    OR              reduce using rule 39 (condition -> ID GTHOREQUAL INT .)
+
+
+state 112
+
+    (40) condition -> ID LTHOREQUAL INT .
+
+    RPAREN          reduce using rule 40 (condition -> ID LTHOREQUAL INT .)
+    AND             reduce using rule 40 (condition -> ID LTHOREQUAL INT .)
+    OR              reduce using rule 40 (condition -> ID LTHOREQUAL INT .)
+
+
+state 113
+
+    (41) expression -> WHILE LPAREN ID EQUALEQUAL INT . RPAREN LBRACE instruction RBRACE
+
+    RPAREN          shift and go to state 129
+
+
+state 114
+
+    (42) expression -> WHILE LPAREN ID GTH INT . RPAREN LBRACE instruction RBRACE
+
+    RPAREN          shift and go to state 130
+
+
+state 115
+
+    (43) expression -> WHILE LPAREN ID LTH INT . RPAREN LBRACE instruction RBRACE
+
+    RPAREN          shift and go to state 131
+
+
+state 116
+
+    (44) expression -> WHILE LPAREN ID GTHOREQUAL INT . RPAREN LBRACE instruction RBRACE
+
+    RPAREN          shift and go to state 132
+
+
+state 117
+
+    (45) expression -> WHILE LPAREN ID LTHOREQUAL INT . RPAREN LBRACE instruction RBRACE
+
+    RPAREN          shift and go to state 133
+
+
+state 118
+
+    (48) expression -> FOR INT TO INT DEUXPOINTS . instruction
+    (46) instruction -> . expression
+    (47) instruction -> . expression COMMA instruction
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    STRING          shift and go to state 4
+    BOOL            shift and go to state 5
+    ID              shift and go to state 6
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    instruction                    shift and go to state 134
+    expression                     shift and go to state 135
+
+state 119
+
+    (49) expression -> INPUT LPAREN STRING COMMA ID . RPAREN
+
+    RPAREN          shift and go to state 136
+
+
+state 120
+
+    (58) expression -> FUNCTION ID LPAREN RPAREN LBRACE . instruction RBRACE
+    (46) instruction -> . expression
+    (47) instruction -> . expression COMMA instruction
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    STRING          shift and go to state 4
+    BOOL            shift and go to state 5
+    ID              shift and go to state 6
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    instruction                    shift and go to state 137
+    expression                     shift and go to state 135
+
+state 121
+
+    (62) expression -> FUNCTION ID LPAREN RPAREN SEMICOL .
+
+    PLUS            reduce using rule 62 (expression -> FUNCTION ID LPAREN RPAREN SEMICOL .)
+    MINUS           reduce using rule 62 (expression -> FUNCTION ID LPAREN RPAREN SEMICOL .)
+    TIMES           reduce using rule 62 (expression -> FUNCTION ID LPAREN RPAREN SEMICOL .)
+    DIVIDE          reduce using rule 62 (expression -> FUNCTION ID LPAREN RPAREN SEMICOL .)
+    $end            reduce using rule 62 (expression -> FUNCTION ID LPAREN RPAREN SEMICOL .)
+    RPAREN          reduce using rule 62 (expression -> FUNCTION ID LPAREN RPAREN SEMICOL .)
+    COMMA           reduce using rule 62 (expression -> FUNCTION ID LPAREN RPAREN SEMICOL .)
+    RBRACE          reduce using rule 62 (expression -> FUNCTION ID LPAREN RPAREN SEMICOL .)
+
+
+state 122
+
+    (59) expression -> FUNCTION ID LPAREN ARGS RPAREN . LBRACE instruction RBRACE
+    (63) expression -> FUNCTION ID LPAREN ARGS RPAREN . SEMICOL
+
+    LBRACE          shift and go to state 138
+    SEMICOL         shift and go to state 139
+
+
+state 123
+
+    (61) ARGS -> expression COMMA . ARGS
+    (60) ARGS -> . expression
+    (61) ARGS -> . expression COMMA ARGS
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    STRING          shift and go to state 4
+    BOOL            shift and go to state 5
+    ID              shift and go to state 6
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    expression                     shift and go to state 92
+    ARGS                           shift and go to state 140
+
+state 124
+
+    (53) expression -> ID POINT APPEND LPAREN item RPAREN .
+
+    PLUS            reduce using rule 53 (expression -> ID POINT APPEND LPAREN item RPAREN .)
+    MINUS           reduce using rule 53 (expression -> ID POINT APPEND LPAREN item RPAREN .)
+    TIMES           reduce using rule 53 (expression -> ID POINT APPEND LPAREN item RPAREN .)
+    DIVIDE          reduce using rule 53 (expression -> ID POINT APPEND LPAREN item RPAREN .)
+    $end            reduce using rule 53 (expression -> ID POINT APPEND LPAREN item RPAREN .)
+    RPAREN          reduce using rule 53 (expression -> ID POINT APPEND LPAREN item RPAREN .)
+    COMMA           reduce using rule 53 (expression -> ID POINT APPEND LPAREN item RPAREN .)
+    RBRACE          reduce using rule 53 (expression -> ID POINT APPEND LPAREN item RPAREN .)
+
+
+state 125
+
+    (55) expression -> ID POINT POP LPAREN INT RPAREN .
+
+    PLUS            reduce using rule 55 (expression -> ID POINT POP LPAREN INT RPAREN .)
+    MINUS           reduce using rule 55 (expression -> ID POINT POP LPAREN INT RPAREN .)
+    TIMES           reduce using rule 55 (expression -> ID POINT POP LPAREN INT RPAREN .)
+    DIVIDE          reduce using rule 55 (expression -> ID POINT POP LPAREN INT RPAREN .)
+    $end            reduce using rule 55 (expression -> ID POINT POP LPAREN INT RPAREN .)
+    RPAREN          reduce using rule 55 (expression -> ID POINT POP LPAREN INT RPAREN .)
+    COMMA           reduce using rule 55 (expression -> ID POINT POP LPAREN INT RPAREN .)
+    RBRACE          reduce using rule 55 (expression -> ID POINT POP LPAREN INT RPAREN .)
+
+
+state 126
+
+    (27) expression -> IF LPAREN condition RPAREN LBRACE expression . RBRACE
+    (30) expression -> IF LPAREN condition RPAREN LBRACE expression . RBRACE ELSE LBRACE expression RBRACE
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . TIMES expression
+    (16) expression -> expression . DIVIDE expression
+
+    RBRACE          shift and go to state 141
+    PLUS            shift and go to state 14
+    MINUS           shift and go to state 15
+    TIMES           shift and go to state 16
+    DIVIDE          shift and go to state 17
+
+
+state 127
+
+    (28) expression -> IF LPAREN condition AND condition RPAREN . LBRACE expression RBRACE
+
+    LBRACE          shift and go to state 142
+
+
+state 128
+
+    (29) expression -> IF LPAREN condition OR condition RPAREN . LBRACE expression RBRACE
+
+    LBRACE          shift and go to state 143
+
+
+state 129
+
+    (41) expression -> WHILE LPAREN ID EQUALEQUAL INT RPAREN . LBRACE instruction RBRACE
+
+    LBRACE          shift and go to state 144
+
+
+state 130
+
+    (42) expression -> WHILE LPAREN ID GTH INT RPAREN . LBRACE instruction RBRACE
+
+    LBRACE          shift and go to state 145
+
+
+state 131
+
+    (43) expression -> WHILE LPAREN ID LTH INT RPAREN . LBRACE instruction RBRACE
+
+    LBRACE          shift and go to state 146
+
+
+state 132
+
+    (44) expression -> WHILE LPAREN ID GTHOREQUAL INT RPAREN . LBRACE instruction RBRACE
+
+    LBRACE          shift and go to state 147
+
+
+state 133
+
+    (45) expression -> WHILE LPAREN ID LTHOREQUAL INT RPAREN . LBRACE instruction RBRACE
+
+    LBRACE          shift and go to state 148
+
+
+state 134
+
+    (48) expression -> FOR INT TO INT DEUXPOINTS instruction .
+
+    PLUS            reduce using rule 48 (expression -> FOR INT TO INT DEUXPOINTS instruction .)
+    MINUS           reduce using rule 48 (expression -> FOR INT TO INT DEUXPOINTS instruction .)
+    TIMES           reduce using rule 48 (expression -> FOR INT TO INT DEUXPOINTS instruction .)
+    DIVIDE          reduce using rule 48 (expression -> FOR INT TO INT DEUXPOINTS instruction .)
+    $end            reduce using rule 48 (expression -> FOR INT TO INT DEUXPOINTS instruction .)
+    RPAREN          reduce using rule 48 (expression -> FOR INT TO INT DEUXPOINTS instruction .)
+    COMMA           reduce using rule 48 (expression -> FOR INT TO INT DEUXPOINTS instruction .)
+    RBRACE          reduce using rule 48 (expression -> FOR INT TO INT DEUXPOINTS instruction .)
+
+
+state 135
+
+    (46) instruction -> expression .
+    (47) instruction -> expression . COMMA instruction
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . TIMES expression
+    (16) expression -> expression . DIVIDE expression
+
+  ! shift/reduce conflict for COMMA resolved as shift
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+    $end            reduce using rule 46 (instruction -> expression .)
+    RPAREN          reduce using rule 46 (instruction -> expression .)
+    RBRACE          reduce using rule 46 (instruction -> expression .)
+    COMMA           shift and go to state 149
+    PLUS            shift and go to state 14
+    MINUS           shift and go to state 15
+    TIMES           shift and go to state 16
+    DIVIDE          shift and go to state 17
+
+  ! PLUS            [ reduce using rule 46 (instruction -> expression .) ]
+  ! MINUS           [ reduce using rule 46 (instruction -> expression .) ]
+  ! TIMES           [ reduce using rule 46 (instruction -> expression .) ]
+  ! DIVIDE          [ reduce using rule 46 (instruction -> expression .) ]
+  ! COMMA           [ reduce using rule 46 (instruction -> expression .) ]
+
+
+state 136
+
+    (49) expression -> INPUT LPAREN STRING COMMA ID RPAREN .
+
+    PLUS            reduce using rule 49 (expression -> INPUT LPAREN STRING COMMA ID RPAREN .)
+    MINUS           reduce using rule 49 (expression -> INPUT LPAREN STRING COMMA ID RPAREN .)
+    TIMES           reduce using rule 49 (expression -> INPUT LPAREN STRING COMMA ID RPAREN .)
+    DIVIDE          reduce using rule 49 (expression -> INPUT LPAREN STRING COMMA ID RPAREN .)
+    $end            reduce using rule 49 (expression -> INPUT LPAREN STRING COMMA ID RPAREN .)
+    RPAREN          reduce using rule 49 (expression -> INPUT LPAREN STRING COMMA ID RPAREN .)
+    COMMA           reduce using rule 49 (expression -> INPUT LPAREN STRING COMMA ID RPAREN .)
+    RBRACE          reduce using rule 49 (expression -> INPUT LPAREN STRING COMMA ID RPAREN .)
+
+
+state 137
+
+    (58) expression -> FUNCTION ID LPAREN RPAREN LBRACE instruction . RBRACE
+
+    RBRACE          shift and go to state 150
+
+
+state 138
+
+    (59) expression -> FUNCTION ID LPAREN ARGS RPAREN LBRACE . instruction RBRACE
+    (46) instruction -> . expression
+    (47) instruction -> . expression COMMA instruction
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    STRING          shift and go to state 4
+    BOOL            shift and go to state 5
+    ID              shift and go to state 6
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    instruction                    shift and go to state 151
+    expression                     shift and go to state 135
+
+state 139
+
+    (63) expression -> FUNCTION ID LPAREN ARGS RPAREN SEMICOL .
+
+    PLUS            reduce using rule 63 (expression -> FUNCTION ID LPAREN ARGS RPAREN SEMICOL .)
+    MINUS           reduce using rule 63 (expression -> FUNCTION ID LPAREN ARGS RPAREN SEMICOL .)
+    TIMES           reduce using rule 63 (expression -> FUNCTION ID LPAREN ARGS RPAREN SEMICOL .)
+    DIVIDE          reduce using rule 63 (expression -> FUNCTION ID LPAREN ARGS RPAREN SEMICOL .)
+    $end            reduce using rule 63 (expression -> FUNCTION ID LPAREN ARGS RPAREN SEMICOL .)
+    RPAREN          reduce using rule 63 (expression -> FUNCTION ID LPAREN ARGS RPAREN SEMICOL .)
+    COMMA           reduce using rule 63 (expression -> FUNCTION ID LPAREN ARGS RPAREN SEMICOL .)
+    RBRACE          reduce using rule 63 (expression -> FUNCTION ID LPAREN ARGS RPAREN SEMICOL .)
+
+
+state 140
+
+    (61) ARGS -> expression COMMA ARGS .
+
+    RPAREN          reduce using rule 61 (ARGS -> expression COMMA ARGS .)
+
+
+state 141
+
+    (27) expression -> IF LPAREN condition RPAREN LBRACE expression RBRACE .
+    (30) expression -> IF LPAREN condition RPAREN LBRACE expression RBRACE . ELSE LBRACE expression RBRACE
+
+    PLUS            reduce using rule 27 (expression -> IF LPAREN condition RPAREN LBRACE expression RBRACE .)
+    MINUS           reduce using rule 27 (expression -> IF LPAREN condition RPAREN LBRACE expression RBRACE .)
+    TIMES           reduce using rule 27 (expression -> IF LPAREN condition RPAREN LBRACE expression RBRACE .)
+    DIVIDE          reduce using rule 27 (expression -> IF LPAREN condition RPAREN LBRACE expression RBRACE .)
+    $end            reduce using rule 27 (expression -> IF LPAREN condition RPAREN LBRACE expression RBRACE .)
+    RPAREN          reduce using rule 27 (expression -> IF LPAREN condition RPAREN LBRACE expression RBRACE .)
+    COMMA           reduce using rule 27 (expression -> IF LPAREN condition RPAREN LBRACE expression RBRACE .)
+    RBRACE          reduce using rule 27 (expression -> IF LPAREN condition RPAREN LBRACE expression RBRACE .)
+    ELSE            shift and go to state 152
+
+
+state 142
+
+    (28) expression -> IF LPAREN condition AND condition RPAREN LBRACE . expression RBRACE
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    STRING          shift and go to state 4
+    BOOL            shift and go to state 5
+    ID              shift and go to state 6
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    expression                     shift and go to state 153
+
+state 143
+
+    (29) expression -> IF LPAREN condition OR condition RPAREN LBRACE . expression RBRACE
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    STRING          shift and go to state 4
+    BOOL            shift and go to state 5
+    ID              shift and go to state 6
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    expression                     shift and go to state 154
+
+state 144
+
+    (41) expression -> WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE . instruction RBRACE
+    (46) instruction -> . expression
+    (47) instruction -> . expression COMMA instruction
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    STRING          shift and go to state 4
+    BOOL            shift and go to state 5
+    ID              shift and go to state 6
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    instruction                    shift and go to state 155
+    expression                     shift and go to state 135
+
+state 145
+
+    (42) expression -> WHILE LPAREN ID GTH INT RPAREN LBRACE . instruction RBRACE
+    (46) instruction -> . expression
+    (47) instruction -> . expression COMMA instruction
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    STRING          shift and go to state 4
+    BOOL            shift and go to state 5
+    ID              shift and go to state 6
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    instruction                    shift and go to state 156
+    expression                     shift and go to state 135
+
+state 146
+
+    (43) expression -> WHILE LPAREN ID LTH INT RPAREN LBRACE . instruction RBRACE
+    (46) instruction -> . expression
+    (47) instruction -> . expression COMMA instruction
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    STRING          shift and go to state 4
+    BOOL            shift and go to state 5
+    ID              shift and go to state 6
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    instruction                    shift and go to state 157
+    expression                     shift and go to state 135
+
+state 147
+
+    (44) expression -> WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE . instruction RBRACE
+    (46) instruction -> . expression
+    (47) instruction -> . expression COMMA instruction
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    STRING          shift and go to state 4
+    BOOL            shift and go to state 5
+    ID              shift and go to state 6
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    instruction                    shift and go to state 158
+    expression                     shift and go to state 135
+
+state 148
+
+    (45) expression -> WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE . instruction RBRACE
+    (46) instruction -> . expression
+    (47) instruction -> . expression COMMA instruction
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    STRING          shift and go to state 4
+    BOOL            shift and go to state 5
+    ID              shift and go to state 6
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    instruction                    shift and go to state 159
+    expression                     shift and go to state 135
+
+state 149
+
+    (47) instruction -> expression COMMA . instruction
+    (46) instruction -> . expression
+    (47) instruction -> . expression COMMA instruction
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    STRING          shift and go to state 4
+    BOOL            shift and go to state 5
+    ID              shift and go to state 6
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    expression                     shift and go to state 135
+    instruction                    shift and go to state 160
+
+state 150
+
+    (58) expression -> FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE .
+
+    PLUS            reduce using rule 58 (expression -> FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE .)
+    MINUS           reduce using rule 58 (expression -> FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE .)
+    TIMES           reduce using rule 58 (expression -> FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE .)
+    DIVIDE          reduce using rule 58 (expression -> FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE .)
+    $end            reduce using rule 58 (expression -> FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE .)
+    RPAREN          reduce using rule 58 (expression -> FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE .)
+    COMMA           reduce using rule 58 (expression -> FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE .)
+    RBRACE          reduce using rule 58 (expression -> FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE .)
+
+
+state 151
+
+    (59) expression -> FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction . RBRACE
+
+    RBRACE          shift and go to state 161
+
+
+state 152
+
+    (30) expression -> IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE . LBRACE expression RBRACE
+
+    LBRACE          shift and go to state 162
+
+
+state 153
+
+    (28) expression -> IF LPAREN condition AND condition RPAREN LBRACE expression . RBRACE
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . TIMES expression
+    (16) expression -> expression . DIVIDE expression
+
+    RBRACE          shift and go to state 163
+    PLUS            shift and go to state 14
+    MINUS           shift and go to state 15
+    TIMES           shift and go to state 16
+    DIVIDE          shift and go to state 17
+
+
+state 154
+
+    (29) expression -> IF LPAREN condition OR condition RPAREN LBRACE expression . RBRACE
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . TIMES expression
+    (16) expression -> expression . DIVIDE expression
+
+    RBRACE          shift and go to state 164
+    PLUS            shift and go to state 14
+    MINUS           shift and go to state 15
+    TIMES           shift and go to state 16
+    DIVIDE          shift and go to state 17
+
+
+state 155
+
+    (41) expression -> WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction . RBRACE
+
+    RBRACE          shift and go to state 165
+
+
+state 156
+
+    (42) expression -> WHILE LPAREN ID GTH INT RPAREN LBRACE instruction . RBRACE
+
+    RBRACE          shift and go to state 166
+
+
+state 157
+
+    (43) expression -> WHILE LPAREN ID LTH INT RPAREN LBRACE instruction . RBRACE
+
+    RBRACE          shift and go to state 167
+
+
+state 158
+
+    (44) expression -> WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction . RBRACE
+
+    RBRACE          shift and go to state 168
+
+
+state 159
+
+    (45) expression -> WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction . RBRACE
+
+    RBRACE          shift and go to state 169
+
+
+state 160
+
+    (47) instruction -> expression COMMA instruction .
+
+    PLUS            reduce using rule 47 (instruction -> expression COMMA instruction .)
+    MINUS           reduce using rule 47 (instruction -> expression COMMA instruction .)
+    TIMES           reduce using rule 47 (instruction -> expression COMMA instruction .)
+    DIVIDE          reduce using rule 47 (instruction -> expression COMMA instruction .)
+    $end            reduce using rule 47 (instruction -> expression COMMA instruction .)
+    RPAREN          reduce using rule 47 (instruction -> expression COMMA instruction .)
+    COMMA           reduce using rule 47 (instruction -> expression COMMA instruction .)
+    RBRACE          reduce using rule 47 (instruction -> expression COMMA instruction .)
+
+
+state 161
+
+    (59) expression -> FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE .
+
+    PLUS            reduce using rule 59 (expression -> FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE .)
+    MINUS           reduce using rule 59 (expression -> FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE .)
+    TIMES           reduce using rule 59 (expression -> FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE .)
+    DIVIDE          reduce using rule 59 (expression -> FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE .)
+    $end            reduce using rule 59 (expression -> FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE .)
+    RPAREN          reduce using rule 59 (expression -> FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE .)
+    COMMA           reduce using rule 59 (expression -> FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE .)
+    RBRACE          reduce using rule 59 (expression -> FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE .)
+
+
+state 162
+
+    (30) expression -> IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE . expression RBRACE
+    (1) expression -> . INT
+    (2) expression -> . FLOATTYPE
+    (7) expression -> . STRING
+    (8) expression -> . BOOL
+    (9) expression -> . ID DECREMENTATION
+    (10) expression -> . INT DECREMENTATION
+    (11) expression -> . ID INCREMENTATION
+    (12) expression -> . INT INCREMENTATION
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression TIMES expression
+    (16) expression -> . expression DIVIDE expression
+    (17) expression -> . ID PLUS expression
+    (18) expression -> . ID MINUS expression
+    (19) expression -> . ID TIMES expression
+    (20) expression -> . ID DIVIDE expression
+    (21) expression -> . ID PLUS STRING
+    (22) expression -> . PRINT LPAREN STRING RPAREN
+    (23) expression -> . ID EQUALS expression
+    (24) expression -> . ID EQUALS ID
+    (25) expression -> . PRINT LPAREN ID RPAREN
+    (26) expression -> . PRINT LPAREN expression RPAREN
+    (27) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE
+    (28) expression -> . IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE
+    (29) expression -> . IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE
+    (30) expression -> . IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE
+    (41) expression -> . WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE
+    (42) expression -> . WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE
+    (43) expression -> . WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE
+    (44) expression -> . WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (45) expression -> . WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE
+    (48) expression -> . FOR INT TO INT DEUXPOINTS instruction
+    (49) expression -> . INPUT LPAREN STRING COMMA ID RPAREN
+    (50) expression -> . LIST ID SEMICOL
+    (53) expression -> . ID POINT APPEND LPAREN item RPAREN
+    (54) expression -> . ID POINT CLEAR LPAREN RPAREN
+    (55) expression -> . ID POINT POP LPAREN INT RPAREN
+    (56) expression -> . ID POINT SORT LPAREN RPAREN
+    (57) expression -> . ID POINT REVERSE LPAREN RPAREN
+    (58) expression -> . FUNCTION ID LPAREN RPAREN LBRACE instruction RBRACE
+    (59) expression -> . FUNCTION ID LPAREN ARGS RPAREN LBRACE instruction RBRACE
+    (62) expression -> . FUNCTION ID LPAREN RPAREN SEMICOL
+    (63) expression -> . FUNCTION ID LPAREN ARGS RPAREN SEMICOL
+
+    INT             shift and go to state 2
+    FLOATTYPE       shift and go to state 3
+    STRING          shift and go to state 4
+    BOOL            shift and go to state 5
+    ID              shift and go to state 6
+    PRINT           shift and go to state 7
+    IF              shift and go to state 8
+    WHILE           shift and go to state 9
+    FOR             shift and go to state 10
+    INPUT           shift and go to state 11
+    LIST            shift and go to state 12
+    FUNCTION        shift and go to state 13
+
+    expression                     shift and go to state 170
+
+state 163
+
+    (28) expression -> IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE .
+
+    PLUS            reduce using rule 28 (expression -> IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE .)
+    MINUS           reduce using rule 28 (expression -> IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE .)
+    TIMES           reduce using rule 28 (expression -> IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE .)
+    DIVIDE          reduce using rule 28 (expression -> IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE .)
+    $end            reduce using rule 28 (expression -> IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE .)
+    RPAREN          reduce using rule 28 (expression -> IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE .)
+    COMMA           reduce using rule 28 (expression -> IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE .)
+    RBRACE          reduce using rule 28 (expression -> IF LPAREN condition AND condition RPAREN LBRACE expression RBRACE .)
+
+
+state 164
+
+    (29) expression -> IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE .
+
+    PLUS            reduce using rule 29 (expression -> IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE .)
+    MINUS           reduce using rule 29 (expression -> IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE .)
+    TIMES           reduce using rule 29 (expression -> IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE .)
+    DIVIDE          reduce using rule 29 (expression -> IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE .)
+    $end            reduce using rule 29 (expression -> IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE .)
+    RPAREN          reduce using rule 29 (expression -> IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE .)
+    COMMA           reduce using rule 29 (expression -> IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE .)
+    RBRACE          reduce using rule 29 (expression -> IF LPAREN condition OR condition RPAREN LBRACE expression RBRACE .)
+
+
+state 165
+
+    (41) expression -> WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE .
+
+    PLUS            reduce using rule 41 (expression -> WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE .)
+    MINUS           reduce using rule 41 (expression -> WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE .)
+    TIMES           reduce using rule 41 (expression -> WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE .)
+    DIVIDE          reduce using rule 41 (expression -> WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE .)
+    $end            reduce using rule 41 (expression -> WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE .)
+    RPAREN          reduce using rule 41 (expression -> WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE .)
+    COMMA           reduce using rule 41 (expression -> WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE .)
+    RBRACE          reduce using rule 41 (expression -> WHILE LPAREN ID EQUALEQUAL INT RPAREN LBRACE instruction RBRACE .)
+
+
+state 166
+
+    (42) expression -> WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE .
+
+    PLUS            reduce using rule 42 (expression -> WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE .)
+    MINUS           reduce using rule 42 (expression -> WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE .)
+    TIMES           reduce using rule 42 (expression -> WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE .)
+    DIVIDE          reduce using rule 42 (expression -> WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE .)
+    $end            reduce using rule 42 (expression -> WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE .)
+    RPAREN          reduce using rule 42 (expression -> WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE .)
+    COMMA           reduce using rule 42 (expression -> WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE .)
+    RBRACE          reduce using rule 42 (expression -> WHILE LPAREN ID GTH INT RPAREN LBRACE instruction RBRACE .)
+
+
+state 167
+
+    (43) expression -> WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE .
+
+    PLUS            reduce using rule 43 (expression -> WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE .)
+    MINUS           reduce using rule 43 (expression -> WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE .)
+    TIMES           reduce using rule 43 (expression -> WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE .)
+    DIVIDE          reduce using rule 43 (expression -> WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE .)
+    $end            reduce using rule 43 (expression -> WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE .)
+    RPAREN          reduce using rule 43 (expression -> WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE .)
+    COMMA           reduce using rule 43 (expression -> WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE .)
+    RBRACE          reduce using rule 43 (expression -> WHILE LPAREN ID LTH INT RPAREN LBRACE instruction RBRACE .)
+
+
+state 168
+
+    (44) expression -> WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE .
+
+    PLUS            reduce using rule 44 (expression -> WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE .)
+    MINUS           reduce using rule 44 (expression -> WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE .)
+    TIMES           reduce using rule 44 (expression -> WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE .)
+    DIVIDE          reduce using rule 44 (expression -> WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE .)
+    $end            reduce using rule 44 (expression -> WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE .)
+    RPAREN          reduce using rule 44 (expression -> WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE .)
+    COMMA           reduce using rule 44 (expression -> WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE .)
+    RBRACE          reduce using rule 44 (expression -> WHILE LPAREN ID GTHOREQUAL INT RPAREN LBRACE instruction RBRACE .)
+
+
+state 169
+
+    (45) expression -> WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE .
+
+    PLUS            reduce using rule 45 (expression -> WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE .)
+    MINUS           reduce using rule 45 (expression -> WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE .)
+    TIMES           reduce using rule 45 (expression -> WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE .)
+    DIVIDE          reduce using rule 45 (expression -> WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE .)
+    $end            reduce using rule 45 (expression -> WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE .)
+    RPAREN          reduce using rule 45 (expression -> WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE .)
+    COMMA           reduce using rule 45 (expression -> WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE .)
+    RBRACE          reduce using rule 45 (expression -> WHILE LPAREN ID LTHOREQUAL INT RPAREN LBRACE instruction RBRACE .)
+
+
+state 170
+
+    (30) expression -> IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression . RBRACE
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . TIMES expression
+    (16) expression -> expression . DIVIDE expression
+
+    RBRACE          shift and go to state 171
+    PLUS            shift and go to state 14
+    MINUS           shift and go to state 15
+    TIMES           shift and go to state 16
+    DIVIDE          shift and go to state 17
+
+
+state 171
+
+    (30) expression -> IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE .
+
+    PLUS            reduce using rule 30 (expression -> IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE .)
+    MINUS           reduce using rule 30 (expression -> IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE .)
+    TIMES           reduce using rule 30 (expression -> IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE .)
+    DIVIDE          reduce using rule 30 (expression -> IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE .)
+    $end            reduce using rule 30 (expression -> IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE .)
+    RPAREN          reduce using rule 30 (expression -> IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE .)
+    COMMA           reduce using rule 30 (expression -> IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE .)
+    RBRACE          reduce using rule 30 (expression -> IF LPAREN condition RPAREN LBRACE expression RBRACE ELSE LBRACE expression RBRACE .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for PLUS in state 44 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 44 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 44 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 44 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 45 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 45 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 45 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 45 resolved as shift
+WARNING: shift/reduce conflict for RPAREN in state 51 resolved as shift
+WARNING: shift/reduce conflict for COMMA in state 135 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 135 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 135 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 135 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 135 resolved as shift
+WARNING: reduce/reduce conflict in state 40 resolved using rule (expression -> STRING)
+WARNING: rejected rule (expression -> ID PLUS STRING) in state 40
+WARNING: Rule (expression -> ID PLUS STRING) is never reduced

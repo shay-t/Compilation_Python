@@ -1,0 +1,11 @@
+siggz("hello world")
+a=10
+b=a+8
+xmi(5<6 mad 8>10){b++}
+i 0..3 : siggz("wesh") , siggz("wesh") , siggz("a zin hh")
+algamt c ;
+c.lqqm(5)
+c.lqqm("hello")
+c.lqqm("thela")
+siggz(c)
+
